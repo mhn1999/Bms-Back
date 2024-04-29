@@ -25,4 +25,4 @@ class get_leaderboard_elements(APIView):
     def get(self,requst):
         reviews=LeaderBoardMember.objects.order_by('playTime')
         serializer=RegisterSerializer(reviews,many=True)
-        return Response({"message": serializer.data}, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_200_OK)
